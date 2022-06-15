@@ -29,14 +29,14 @@ paceOptions = {
     document: true,
     eventLag: false
     };
-  
+
     Pace.on('done', function() {
         gsap.to('.p',1,{
           opacity:0,
           y:'-15%',
           stagger:-.1,
         })
-  
+
     gsap.to('#preloader',1.5,{
         y:'-100%',
         ease:'Expo.easeInOut',
@@ -71,14 +71,14 @@ paceOptions = {
 
                 gsap.to('.opacity-contact',1,{delay:1,opacity:1,stagger:.4})
 
-            } 
+            }
 
 
 
                 $('.menu-bar-line').delay(2000).addClass('opacity');
 
 
-              
+
 
 
 
@@ -132,7 +132,7 @@ paceOptions = {
 
 
 
-//NAVIGATION CONTENT HOVER EFFECT 
+//NAVIGATION CONTENT HOVER EFFECT
   $(function(){
 
  TweenMax.set(".project-preview", { width: 0 });
@@ -151,9 +151,9 @@ $(".navigation-content ul li a").hover(function(e) {
     var img = e.currentTarget.dataset.img;
 
     $(".project-preview").css({ "background-image": `url(%24%7bimg%7d.html) `});
- 
+
   });
-  
+
 
     var $img = $('.project-preview');
       function cursormover(e){
@@ -165,12 +165,12 @@ $(".navigation-content ul li a").hover(function(e) {
       $('.navigation-content').on('mousemove',cursormover);
   })
 
-   
 
 
 
 
-   //NAVIGATION CONTENT 
+
+   //NAVIGATION CONTENT
     $(function(){
         $('.menu-bar').on('click',function(){
             gsap.to('.navigation-content',1.5,{y:0, ease:'Expo.easeInOut'})
@@ -180,7 +180,7 @@ $(".navigation-content ul li a").hover(function(e) {
             if(document.querySelector('.fade-up')){
 
                 gsap.to('.fade-up',1,{backdropFilter:'blur(0px)',delay:1});
-            }  
+            }
         })
 
 
@@ -195,21 +195,21 @@ $(".navigation-content ul li a").hover(function(e) {
 
                 gsap.to('.fade-up',1,{backdropFilter:'blur(20px)',delay:.5});
 
-            }  
+            }
         })
     })
 
 
 
-      
 
-    //SONGS PLAYER 
+
+    //SONGS PLAYER
     window.onload=function(){
         $('.play-song img').on('click',function(e){
             var song = e.currentTarget.dataset.song;
-   
+
             var songtoplay = document.querySelector(`[data-audio="${song}"]`);
-            
+
 
             //if song is playing pause it
             if (songtoplay.duration > 0 && !songtoplay.paused) {
@@ -217,16 +217,16 @@ $(".navigation-content ul li a").hover(function(e) {
                 songtoplay.pause()
 
                 songtoplay.classList.remove('playing')
-            
+
                 this.src="images/play.png";
 
                 var sondindicator = document.querySelectorAll('.music-indicator-span');
 
                 sondindicator.forEach(a=>a.classList.remove('animating'));
 
-            
-            } 
-  
+
+            }
+
             //if song is not playing play it and if another song is playing mute the other song
 
             //also change the play button image to pause
@@ -237,8 +237,8 @@ $(".navigation-content ul li a").hover(function(e) {
                     var playing = document.querySelectorAll('.playing')
                         playing.forEach(a=>a.pause());
                         playing.forEach(a=>a.classList.remove('playing'));
-                       
-    
+
+
                     var playingsymbol = document.querySelectorAll('.playing-symbol')
                         playingsymbol.forEach(a=>a.src="images/play.png");
                         playingsymbol.forEach(a=>a.classList.remove('playing-symbol'));
@@ -251,66 +251,16 @@ $(".navigation-content ul li a").hover(function(e) {
 
                 sondindicator.forEach(a=>a.classList.add('animating'));
 
-    
+
                 songtoplay.classList.add('playing')
                 this.classList.add('playing-symbol')
 
                 this.src="images/pause.png";
-            
+
             }
         })
     }
 
-
-          //CUSTOM CURSOR ANIMATION
-          $(function(){
-            var $cursor = $('.cursor');
-            var $cursortwo = $('.cursor-two')
-              function cursormover(e){
-               
-               gsap.to( $cursor , {
-                 x : e.clientX ,
-                 y : e.clientY,
-                })
-                gsap.to( $cursortwo , {
-                  x : e.clientX ,
-                  y : e.clientY,
-                 })
-              }
-              function cursorhover(e){
-               gsap.to( $cursor,{
-                scale:1.5,
-                opacity:.4,
-                background:'rgb(235,235,235)',
-                border:'none',
-                ease: Expo.easeOut,
-               })
-               gsap.to( $cursortwo,{
-                scale:0,
-                opacity:0
-               })
-             }
-             function cursor(e){
-               gsap.to( $cursor, {
-                scale:1,
-                opacity:1,
-                background:'transparent',
-                border:'1px solid rgb(235,235,235)',
-                innerHTML:''
-               }) 
-               gsap.to( $cursortwo,{
-                scale:1,
-                opacity:1
-               })
-             }
-             $(window).on('mousemove',cursormover);
-             $('a').hover(cursorhover,cursor);
-             $('.hover').hover(cursorhover,cursor);
-             $('.mouse').hover(cursorhover,cursor);
-             
-          })
-    
-          
 
 
           //CIRCLE EFFECT ON CONTACT PAGE
@@ -319,7 +269,7 @@ $(".navigation-content ul li a").hover(function(e) {
                 var circleType = new CircleType(document.getElementById('rotated')).radius(0);
             })
           }
-    
+
 
 
 
@@ -332,7 +282,7 @@ if(document.querySelector('.why-close')){
 
 
 
-  //CONTACT FORM (AFTER SUBMIT) 
+  //CONTACT FORM (AFTER SUBMIT)
 
   if(document.querySelector('#myForm')){
     var submit = document.getElementById('submit');
@@ -345,9 +295,9 @@ if(document.querySelector('.why-close')){
       var email = $('#email');
       var subject = $("#subject");
       var body = $("#body");
-      
-  
-      
+
+
+
 
       if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body) ) {
           if($("#email").val().match(mailformat)){
@@ -361,12 +311,12 @@ if(document.querySelector('.why-close')){
                     email: email.val(),
                     subject: subject.val(),
                     body: body.val()
-                    
+
                 }, success: function (response) {
                      $('#myForm')[0].reset();
                      $('#submit').text("Sent!!!");
                 }
-                
+
              });
           }
           else{
@@ -378,7 +328,7 @@ if(document.querySelector('.why-close')){
 
       }
   }
-  
+
   function isNotEmpty(caller) {
       if (caller.val() == "" ) {
           caller.css('border-bottom', '1px solid red');
@@ -390,9 +340,9 @@ if(document.querySelector('.why-close')){
           caller.css('border', '');
       return true;
   }
-  
+
   submit.addEventListener('click',sendEmail)
-  
+
   }
 
 
@@ -410,7 +360,7 @@ if(document.querySelector('#SubscriptionForm')){
 
     function sendEmail() {
       var email = $("#email");
-  
+
       if (isNotEmpty(email)) {
         if($("#email").val().match(mailformat)){
             $('#submit').text("Sending");
@@ -419,12 +369,12 @@ if(document.querySelector('#SubscriptionForm')){
                 method: 'POST',
                 dataType: 'json',
                 data: {
-                    email: email.val(),     
+                    email: email.val(),
                 }, success: function (response) {
                      $('#SubscriptionForm')[0].reset();
                      $('#submit').text("Subscribed!!!");
                 }
-                
+
              });
         }
         else{
@@ -433,10 +383,10 @@ if(document.querySelector('#SubscriptionForm')){
             $('#message').css('opacity', '0');
             },2000)
         }
-       
+
       }
   }
-  
+
   function isNotEmpty(caller) {
       if (caller.val() == "") {
           caller.css('border-bottom', '1px solid red');
@@ -446,15 +396,15 @@ if(document.querySelector('#SubscriptionForm')){
           caller.css('border', '');
       return true;
   }
-  
+
   submit.addEventListener('click',sendEmail)
-  
+
   }
 
 
 
 
-  
+
 //submit feel
 
 
@@ -470,14 +420,14 @@ if(document.querySelector('#form-feel')){
 
 
     function sendEmail() {
-     
+
       var body = $("#body-feel");
-      
-  
-      
+
+
+
 
       if ( isNotEmpty(body) ) {
-        
+
             $('#submit-feel').text("Sending");
 
             setTimeout(function(){
@@ -491,20 +441,20 @@ if(document.querySelector('#form-feel')){
                 url: 'feel.php',
                 method: 'POST',
                 dataType: 'json',
-                data: {          
-                    body: body.val()                  
+                data: {
+                    body: body.val()
                 }, success: function (response) {
                      console.log('success')
                 }
-                
-                
+
+
              });
-         
-    
+
+
 
       }
   }
-  
+
   function isNotEmpty(caller) {
       if (caller.val() == "" ) {
           caller.css('border', '1px solid red');
@@ -515,13 +465,13 @@ if(document.querySelector('#form-feel')){
 
        else
           caller.css('border', '');
-    
+
 
       return true;
   }
-  
+
   submit.addEventListener('click',sendEmail)
-  
+
   }
 
 
@@ -550,14 +500,14 @@ if(document.querySelector('#form-feel')){
             type: 'progressbar',
           },
         mousewheel: true,
-        observer: true,  
+        observer: true,
         observeParents: true,
       });
   }
 
 
 
-  
+
 
 
 
